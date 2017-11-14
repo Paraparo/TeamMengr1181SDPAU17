@@ -4,7 +4,7 @@
 %Display Script
 
 %chance Counter
-chance = 
+chance = user;
 
 chance6 = imread('UntitledPlaceholder 06.png');
 chance5 = imread('UntitledPlaceholder 05.png);
