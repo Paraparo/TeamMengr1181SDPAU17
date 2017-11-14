@@ -6,13 +6,13 @@
 %chance Counter
 chance = 
 
-chance6 = imread('');
-chance5 = imread('');
-chance4 = imread('');
-chance3 = imread('');
-chance2 = imread('');
-chance1 = imread('');
-Gameover = imread('');
+chance6 = imread('UntitledPlaceholder 06.png');
+chance5 = imread('UntitledPlaceholder 05.png);
+chance4 = imread('UntitledPlaceholder 04.png');
+chance3 = imread('UntitledPlaceholder 03.png');
+chance2 = imread('UntitledPlaceholder 02.png');
+chance1 = imread('UntitledPlaceholder 01.png');
+Gameover = imread('Gameover.png');
 
 if chance = 6
     clf
