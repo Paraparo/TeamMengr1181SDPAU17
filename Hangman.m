@@ -13,8 +13,9 @@ while user > loss
         fprintf('\nCorrect! Guess again.\n');
         userInput;
     elseif x == y
+        run('HangmanDisplayChance.m')
         user = user-1;
-        fprintf('\nIncorrect! You have made %1.0f incorrect guesses.\n', user);
+        fprintf('\nIncorrect! You have  %1.0f guesses left.\n', user);
     end
     
     if isempty(word) == 1
