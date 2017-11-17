@@ -167,7 +167,7 @@ else
     
     msg5  = msgbox('Several Horses tied'); 
 end
-hrss
+
 
 % --- Executes on button press in HelpMenu.
 function HelpMenu_Callback(hObject, eventdata, handles)
