@@ -22,7 +22,7 @@ function varargout = testfig1(varargin)
 
 % Edit the above text to modify the response to help testfig1
 
-% Last Modified by GUIDE v2.5 16-Nov-2017 20:22:02
+% Last Modified by GUIDE v2.5 17-Nov-2017 13:04:19
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -72,49 +72,73 @@ function varargout = testfig1_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
+function setGlobalx(val)
+global use
+use = 6;
+
+function chan = getGlobalx
+global use
+chan = use;
+
+function setGlobals
+global str
+str = 
 
 % --- Executes on button press in startCheck.
 function startCheck_Callback(hObject, eventdata, handles)
 % hObject    handle to startCheck (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-loss = 6;
-wordChoice = randi([1,10], 1)
-user = 0;
-str=fileread('words.txt')
-C=strsplit(str)
-word=C{wordChoice}
+loss = 0;
+wordChoice = randi([1,10], 1);
+user = getGlobalx;
+str=fileread('words.txt');
+C=strsplit(str);
+word=C{wordChoice};
 usedChars = '';
 %new
-set(handles.counter, 'String', user)
+set(handles.counter, 'String', user);
 
-while user < loss
-    userInput = input('\nEnter a character (lower case): ', 's');
+
+    userInput = get(handles.userinput, 'string');
     newStr = strrep(word, userInput, '');
-    usedChars = userInput
+    usedChars = userInput;
     newStrLength = length(newStr);
     origStrLength = length(word);
+     r = strfind(word,userInput);
+     teststr= blanks(numel(word));
+for x = 1: 1 : size(r)
+    a = r(x);
+    teststr(a) = userInput;
+end    
+teststr;
+showarray=strrep(teststr,' ',' _');
+    
+
     %new`
     set(handles.userinput, 'String', userInput);
     if newStrLength < origStrLength
-        word = newStr
-        msg1 = msgbox('Correct!')
+        word = newStr;
+        msg1 = msgbox('Correct!');
         userInput;
     elseif newStrLength == origStrLength
-        user = user+1;
-        msg2 = msgbox('Incorrect!')
+        u = user - 1;
+        setGlobalx(u);
+        msg2 = msgbox('Incorrect!');
     end
-    
-    if isempty(word) == 1
-        break;
-    end
-    
-end
 
-if user == 6
-    msg3 = msgbox('GAME OVER')
-else
-    msg4 = msgbox('YOU WIN')
+    
+    set(handles.Output,'String', showarray);
+    
+
+
+if user == 0
+    msg3 = msgbox('GAME OVER');
+    close
+
+end
+if showarray == word
+    msg4 = msgbox('YOU WIN');
 end
 
 
@@ -165,4 +189,5 @@ end
 function letterG_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to letterG (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
+% handles    empty - handles not created until after all CreateFcns cal
+
