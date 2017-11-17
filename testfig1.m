@@ -86,7 +86,7 @@ C=strsplit(str)
 word=C{wordChoice}
 usedChars = '';
 %new
-set(handles.counter, 'String', user);
+set(handles.counter, 'String', user)
 
 while user < loss
     userInput = input('\nEnter a character (lower case): ', 's');
@@ -95,7 +95,7 @@ while user < loss
     newStrLength = length(newStr);
     origStrLength = length(word);
     %new`
-
+    set(handles.userinput, 'String', userInput);
     if newStrLength < origStrLength
         word = newStr
         msg1 = msgbox('Correct!')
