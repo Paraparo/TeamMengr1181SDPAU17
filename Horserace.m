@@ -1,3 +1,5 @@
+%Format made using the matlab gui tool.
+
 function varargout = Horserace(varargin)
 % HORSERACE MATLAB code for Horserace.fig
 %      HORSERACE, by itself, creates a new HORSERACE or raises the existing
@@ -72,7 +74,7 @@ function varargout = Horserace_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-
+%creates button that launches main program
 % --- Executes on button press in start.
 function start_Callback(hObject, eventdata, handles)
 % hObject    handle to start (see GCBO)
@@ -168,7 +170,7 @@ else
     msg5  = msgbox('Several Horses tied'); 
 end
 
-
+%creates help menu
 % --- Executes on button press in HelpMenu.
 function HelpMenu_Callback(hObject, eventdata, handles)
 % hObject    handle to HelpMenu (see GCBO)
@@ -176,7 +178,7 @@ function HelpMenu_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 hlpmsg = msgbox({'Welcome to Horse Race!' 'In this game you guess if the result of of 4 racing horses' 'Pick the horse you think will win!' '' '' '----Control----' 'HELP::Launch help menu' 'Horse Line up::Toggle to guess result of the race' 'Play::Starts Race!' 'Quit::Closes Game'},'Help Menu');
 
-
+%creates quit button
 % --- Executes on button press in quit.
 function quit_Callback(hObject, eventdata, handles)
 % hObject    handle to quit (see GCBO)
