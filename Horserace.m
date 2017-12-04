@@ -80,58 +80,60 @@ function start_Callback(hObject, eventdata, handles)
 % hObject    handle to start (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+%ets defult horse position
 hrs1pos =0;
 hrs2pos =0;
 hrs3pos =0;
 hrs4pos =0;
-
+%creates array that holds horse position
 hrs1arr =[];
 hrs2arr =[];
 hrs3arr =[];
 hrs4arr =[];
-
+%This bit didnt make it into the final version
 %hrs1arr(1) =hrs1pos;
 %hrs2arr(1) =hrs2pos;
 %hrs3arr(1) =hrs3pos;
 %hrs4arr(1) =hrs4pos;
-
+%adds horse position to array
 hrs1arr =[hrs1arr, hrs1pos];
 hrs2arr =[hrs2arr, hrs2pos];
 hrs3arr =[hrs3arr, hrs3pos];
 hrs4arr =[hrs4arr, hrs4pos];
 
-
+%loop to generate horse positions
 x = 1;
 while ((hrs1pos<=100)&(hrs2pos<=100)&(hrs3pos<=100)&(hrs4pos<=100))
+%generate indiv. horse move.
 hrs1move = randi([0,10]);
 hrs2move = randi([0,10]);
 hrs3move = randi([0,10]);
 hrs4move = randi([0,10]);
-
+%comp horse new pos
 hrs1pos = hrs1pos + hrs1move;
 hrs2pos = hrs2pos + hrs2move;
 hrs3pos = hrs3pos + hrs3move;
 hrs4pos = hrs4pos + hrs4move;
-
+%unused remnant code
 %hrs1arr(x) =hrs1pos;
 %hrs2arr(x) =hrs2pos;
 %hrs3arr(x) =hrs3pos;
 %hrs4arr(x) =hrs4pos;
-
+%add new pos to array
 hrs1arr =[hrs1arr, hrs1pos];
 hrs2arr =[hrs2arr, hrs2pos];
 hrs3arr =[hrs3arr, hrs3pos];
 hrs4arr =[hrs4arr, hrs4pos];
-
+%loop component
 x=x+1;
 
 end
-
+%used to disp arrays in test purpose
 hrs1arr;
 hrs2arr;
 hrs3arr;
 hrs4arr;
-
+%creates display
 i = linspace(1,x,x);
 a = hrs1arr(i);
 b = hrs2arr(i);
@@ -144,7 +146,7 @@ grid on;
 legend('Horse 1','Horse 2','Horse 3','Horse 4','Location','northwest');
 
 hrss = '';
-
+%generates winning horse message
 if ((hrs1pos>=100)&(hrs2pos<=100)&(hrs3pos<=100)&(hrs4pos<=100))
     msg1 = msgbox('Horse 1 wins!');
 elseif ((hrs1pos<=100)&(hrs2pos>=100)&(hrs3pos<=100)&(hrs4pos<=100))
@@ -154,6 +156,7 @@ elseif ((hrs1pos<=100)&(hrs2pos<=100)&(hrs3pos>=100)&(hrs4pos<=100))
 elseif ((hrs1pos<=100)&(hrs2pos<=100)&(hrs3pos<=100)&(hrs4pos>=100))
     msg4 = msgbox('Horse 4 wins!');
 else
+%code not used in end product.
     if hrs1pos>=100
         hrss1 = '1 ';
     end
